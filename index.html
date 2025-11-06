@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upskill Pro - Unique Tracking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="login-page" class="page active">
+        <div class="login-container">
+            <h2>Welcome to Upskilling</h2>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Enter your name" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+                
+                <button type="submit" class="btn primary-btn">Login to Dashboard</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="courses-page" class="page hidden">
+        <header>
+            <h1>📚 Select Your Upskilling Course</h1>
+        </header>
+
+        <main class="course-grid">
+            <div class="course-card" data-field="Web Development" data-duration="8 Weeks" data-price="$50">
+                <h3>Front-End Masterclass</h3>
+                <p>Focus: React, Tailwind CSS, JavaScript.</p>
+                <p class="info">Duration: 8 Weeks</p>
+                <p class="info price">Price: $50</p>
+                <button class="btn select-btn" onclick="selectCourse(this)">Select Course</button>
+            </div>
+            
+            <div class="course-card" data-field="Data Science" data-duration="12 Weeks" data-price="$72">
+                <h3>Python Data Analyst</h3>
+                <p>Focus: Pandas, NumPy, Data Visualization.</p>
+                <p class="info">Duration: 12 Weeks</p>
+                <p class="info price">Price: $72</p>
+                <button class="btn select-btn" onclick="selectCourse(this)">Select Course</button>
+            </div>
+            
+            <div class="course-card" data-field="UI/UX Design" data-duration="6 Weeks" data-price="$60">
+                <h3>Figma Prototyping</h3>
+                <p>Focus: User research, Wireframing, Figma tools.</p>
+                <p class="info">Duration: 6 Weeks</p>
+                <p class="info price">Price: $60</p>
+                <button class="btn select-btn" onclick="selectCourse(this)">Select Course</button>
+            </div>
+        </main>
+    </div>
+
+
+    <div id="dashboard-page" class="page hidden">
+        <header>
+            <h1 id="dashboard-title">📈 Your Course Tracking</h1>
+            <button class="btn secondary-btn" onclick="goToCourses()">Change Course</button>
+            <button class="btn logout-btn" onclick="logout()">Logout</button>
+        </header>
+
+        <main class="dashboard-layout">
+            
+            <section class="stat-card unique-bg-1">
+                <h2>Current Focus</h2>
+                <p id="track-field" class="large-text">--</p>
+                <p id="track-duration">--</p>
+                <p id="track-price">--</p>
+            </section>
+            
+            <section class="stat-card unique-bg-2">
+                <h2>Progress Status</h2>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-outer">
+                        <div class="progress-bar-inner" id="progress-bar" style="width: 0%"></div>
+                    </div>
+                    <span id="progress-percent" class="large-text">0%</span>
+                </div>
+                <div class="progress-controls">
+                    <button class="btn primary-btn" onclick="updateProgress(10)">Complete Module</button>
+                </div>
+            </section>
+
+            <section class="update-card unique-bg-3">
+                <h2>🚀 Milestones & Updates</h2>
+                <ul id="updates-list">
+                    <li>Select a course to start tracking your progress!</li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+:root {
+    --primary-color: #ff5722;
+    --secondary-color: #26a69a; 
+    --accent-color: #ffc107; 
+    --background-color: #1e272e; 
+    --card-bg-color: #2f3640; 
+    --text-light: #ecf0f1;
+    --text-dark: #333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.page {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hidden {
+    display: none !important;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.active {
+    display: block !important;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn {
+    padding: 17px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 15px;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #e64a19;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 8px 15px;
+}
+
+.logout-btn {
+    background-color: #c0392b;
+    color: white;
+    font-size: 0.9em;
+    padding: 8px 15px;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    background: var(--card-bg-color);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.login-container h2 {
+    color: var(--accent-color);
+    margin-bottom: 25px;
+}
+
+#login-form label {
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+#login-form input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    background: #3c4652;
+    border: 1px solid #4a5563;
+    border-radius: 6px;
+    color: var(--text-light);
+}
+
+.unique-note {
+    font-size: 0.8em;
+    color: #95a5a6;
+    margin-top: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 2px solid #3c4652;
+    margin-bottom: 30px;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.course-card {
+    background-color: var(--card-bg-color);
+    padding: 25px;
+    border-radius: 10px;
+    border-top: 5px solid var(--primary-color);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+.course-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.course-card .info {
+    font-size: 0.9em;
+    color: #bdc3c7;
+    margin: 5px 0;
+}
+
+.course-card .price {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+        "info progress"
+        "updates updates";
+    gap: 20px;
+}
+
+.stat-card, .update-card {
+    background-color: var(--card-bg-color);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.unique-bg-1 { border-left: 5px solid var(--primary-color); grid-area: info; }
+.unique-bg-2 { border-left: 5px solid var(--secondary-color); grid-area: progress; }
+.unique-bg-3 { border-top: 5px solid var(--accent-color); grid-area: updates; }
+
+.stat-card h2 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.large-text {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 10px 0;
+}
+
+.progress-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.progress-bar-container {
+    margin-top: 15px;
+}
+
+.progress-bar-outer {
+    height: 15px;
+    background-color: #4a5563;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress-bar-inner {
+    height: 100%;
+    background-color: var(--secondary-color);
+    transition: width 0.5s ease;
+}
+
+#updates-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+#updates-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #4a5563;
+    font-size: 0.95em;
+}
+
+@media (max-width: 900px) {
+    .dashboard-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "info"
+            "progress"
+            "updates";
+    }
+}
